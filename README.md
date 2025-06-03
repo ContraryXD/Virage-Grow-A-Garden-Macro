@@ -1,4 +1,4 @@
-# Virage Grow A Garden Macro
+# Virage Grow A Garden Macro (for personal use only)
 A macro for the Roblox game "Grow a Garden"
 
  ## Installation
