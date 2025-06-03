@@ -30,9 +30,6 @@ global gearAutoActive := 0
 global eggAutoActive  := 0
 global safeCheckAutoActive := 0
 
-global triedVerify := 0 
-
-
 global actionQueue := []
 
 settingsFile := A_ScriptDir "\settings.ini"
@@ -510,42 +507,11 @@ ShowWelcome:
     Gui, 99: Show, w788 h492 Center, Virage Grow a Garden Macro [COSMETIC UPDATE]
 return
 
-ShowVerify:
-    Gui, 2: +AlwaysOnTop -Resize +ToolWindow
-    Gui, 2: Margin, 10, 10
-    Gui, 2: Font, s10 cBlack Bold, Segoe UI
-    Gui, 2: Add, Text, x10 y10 w380 h40 Center, To use Virage's macro, you must follow Virage on Roblox.
-    Gui, 2: Font, s9 cWhite, Segoe UI
-    Gui, 2: Add, Button, x50 y60 w120 h30 gFollowUser, Follow User
-    Gui, 2: Add, Button, x210 y60 w120 h30 gVerifyUser, Verify
-    Gui, 2: Show,  w400 h110 Center, Virage Verification
-Return
-
 Continue:
     Gui, 99: Destroy
-    triedVerify := 0
-    Gosub, ShowVerify
+    IniWrite, 0, %settingsFile%, Settings, FirstRun
+    Gosub, ShowGui
 return
-
-
-
-FollowUser:
-    ; Replace ##### below with Virage’s actual Roblox numeric user‐ID
-    Run, https://www.roblox.com/users/1066729576/profile
-return
-
-VerifyUser:
-    if (triedVerify = 0) {
-               MsgBox, 0x41030, Verification Error, Please make sure you follow Virage on Roblox, or wait around 10 seconds for the system to verify and try again.
-        triedVerify := 1
-    } else {
-        Gui, 2: Destroy
-        Gui, 99: Destroy
-        IniWrite, 0, %settingsFile%, Settings, FirstRun
-        Gosub, ShowGui
-    }
-Return
-
 
 
 
@@ -749,42 +715,42 @@ Gui, Add, Button, x413 y80 w70 h28 gDonate vDonate50000   BackgroundF0F0F0,50000
 
     Gui, Font, s9 cWhite, Segoe UI
 ; Row 1
-Gui, Add, Picture, x80  y140 w24 h24, %A_ScriptDir%\Images\avatars\RuizuKun_Dev.png
+Gui, Add, Picture, x80  y140 w24 h24, %A_ScriptDir%\Images\avatars\RuizuKun_Dev.png"
 Gui, Add, Text,    x110 y150 w200 h24, RuizuKun_Dev
 Gui, Add, Text,    x350 y150 w100 h24 +Right, 10000
 
 ; Row 2
-Gui, Add, Picture, x80  y170 w24 h24, %A_ScriptDir%\Images\avatars\KeoniHater666.png
+Gui, Add, Picture, x80  y170 w24 h24, %A_ScriptDir%\Images\avatars\KeoniHater666.png"
 Gui, Add, Text,    x110 y180 w200 h24, KeoniHater666
 Gui, Add, Text,    x350 y180 w100 h24 +Right, 2000
 
 ; Row 3
-Gui, Add, Picture, x80  y200 w24 h24, %A_ScriptDir%\Images\avatars\MarvelousMarmoset.png
+Gui, Add, Picture, x80  y200 w24 h24, %A_ScriptDir%\Images\avatars\MarvelousMarmoset.png"
 Gui, Add, Text,    x110 y210 w200 h24, MarvelousMarmoset
 Gui, Add, Text,    x350 y210 w100 h24 +Right, 1500
 
 ; Row 4
-Gui, Add, Picture, x80  y230 w24 h24, %A_ScriptDir%\Images\avatars\peanut1268a.png
+Gui, Add, Picture, x80  y230 w24 h24, %A_ScriptDir%\Images\avatars\peanut1268a.png"
 Gui, Add, Text,    x110 y240 w200 h24, peanut1268a
 Gui, Add, Text,    x350 y240 w100 h24 +Right, 1100
 
 ; Row 5
-Gui, Add, Picture, x80  y260 w24 h24, %A_ScriptDir%\Images\avatars\BarlosWithaB.png
+Gui, Add, Picture, x80  y260 w24 h24, %A_ScriptDir%\Images\avatars\BarlosWithaB.png"
 Gui, Add, Text,    x110 y270 w200 h24, BarlosWithaB
 Gui, Add, Text,    x350 y270 w100 h24 +Right, 1000
 
 ; Row 6
-Gui, Add, Picture, x80  y290 w24 h24, %A_ScriptDir%\Images\avatars\thefreakstoftoday.png
+Gui, Add, Picture, x80  y290 w24 h24, %A_ScriptDir%\Images\avatars\thefreakstoftoday.png"
 Gui, Add, Text,    x110 y300 w200 h24, thefreakstoftoday
 Gui, Add, Text,    x350 y300 w100 h24 +Right, 1000
 
 ; Row 7
-Gui, Add, Picture, x80  y320 w24 h24, %A_ScriptDir%\Images\avatars\zay_karate744.png
+Gui, Add, Picture, x80  y320 w24 h24, %A_ScriptDir%\Images\avatars\zay_karate744.png"
 Gui, Add, Text,    x110 y330 w200 h24, zay_karate744
 Gui, Add, Text,    x350 y330 w100 h24 +Right, 1000
 
 ; Row 8
-Gui, Add, Picture, x80  y350 w24 h24, %A_ScriptDir%\Images\avatars\thefiredragonbest.png
+Gui, Add, Picture, x80  y350 w24 h24, %A_ScriptDir%\Images\avatars\thefiredragonbest.png"
 Gui, Add, Text,    x110 y360 w200 h24, thefiredragonbest
 Gui, Add, Text,    x350 y360 w100 h24 +Right, 600
 
